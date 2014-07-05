@@ -1,6 +1,6 @@
 package com.naif;
 
-// java -jar recibos-1.0-SNAPSHOT.jar >1.txt
+// java -jar target/recibos-1.0-SNAPSHOT.jar >1.txt
 
 import java.io.*;
 import java.util.*;
@@ -21,6 +21,8 @@ import com.naif.tools.dbffile.DBFRecord;
 
 import com.naif.sima.dbf.*;
 
+import  com.naif.tools.dbf.DbfUtils;
+
 
 public class App {
 
@@ -31,6 +33,8 @@ public class App {
   static ArrayList<String> codigos;
 
   public static void main(String[] args) {
+
+      DbfUtils.beanDbfile(sfile);
 
       recibos = new Recibos(sfile);
       codigos = recibos.getIds("CCODIGOEST");
